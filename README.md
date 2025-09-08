@@ -9,6 +9,7 @@ Integrantes:
 ## Uso
 Frontend:
 - `cd frontend` y luego `npm run dev`.
+
 Backend:
 - `cd backend` y luego `npm run start`.
 
