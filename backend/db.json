@@ -49,5 +49,17 @@
     { "id ": 3, "tag": "Deporte" },
     { "id ": 4, "tag": "Pelea" }
   ],
-  "guides": []
+  "guides": [{
+    "id": 1,
+    "title": "Guía de inicio rápido",
+    "content": "Esta guía te ayudará a comenzar rápidamente en el juego."
+  }, {
+    "id": 2,
+    "title": "Estrategias avanzadas",
+    "content": "Consejos y trucos para jugadores avanzados."
+  }, {
+    "id": 3,
+    "title": "Recursos y ubicaciones",
+    "content": "Encuentra los mejores recursos y ubicaciones en el juego."
+  }]
 }
