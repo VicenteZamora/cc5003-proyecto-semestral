@@ -1,10 +1,53 @@
 {
   "posts": [
-    { "id": 1, "title": "Primer post", "content": "Hola mundo" },
-    { "id": 2, "title": "Segundo post", "content": "Este es un ejemplo" }
+    {
+      "id": 1,
+      "title": "Primer post",
+      "content": "Hola mundo",
+      "juego": [1, 3]
+    },
+    {
+      "id": 2,
+      "title": "Segundo post",
+      "content": "Este es un ejemplo",
+      "juego": [2]
+    }
   ],
   "users": [
     { "id": 1, "name": "Juan", "email": "juan@example.com" },
     { "id": 2, "name": "Ana", "email": "ana@example.com" }
-  ]
+  ],
+  "games": [
+    {
+      "id": 1,
+      "name": "The Legend of Zelda: Breath of the Wild",
+      "genre": "Aventura",
+      "platform": "Nintendo Switch",
+      "guides": [1, 2, 3],
+      "tags": [1]
+    },
+    {
+      "id": 2,
+      "name": "God of War",
+      "genre": "Acción",
+      "platform": "PlayStation 4",
+      "guides": [1, 2, 3],
+      "tags": [2, 4]
+    },
+    {
+      "id": 3,
+      "name": "Minecraft",
+      "genre": "Sandbox",
+      "platform": "Multiplataforma",
+      "guides": [1, 2, 3],
+      "tags": [1, 3]
+    }
+  ],
+  "tags": [
+    { "id ": 1, "tag": "Aventura" },
+    { "id ": 2, "tag": "Accion" },
+    { "id ": 3, "tag": "Deporte" },
+    { "id ": 4, "tag": "Pelea" }
+  ],
+  "guides": []
 }
