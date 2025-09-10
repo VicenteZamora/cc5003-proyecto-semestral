@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Primer post",
       "content": "Hola mundo",
-      "juego": [1, 3]
+      "juego": [1]
     },
     {
       "id": 2,
@@ -24,7 +24,8 @@
       "genre": "Aventura",
       "platform": "Nintendo Switch",
       "guides": [1, 2, 3],
-      "tags": [1]
+      "tags": [1],
+      "image": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg"
     },
     {
       "id": 2,
@@ -32,7 +33,8 @@
       "genre": "Acción",
       "platform": "PlayStation 4",
       "guides": [1, 2, 3],
-      "tags": [2, 4]
+      "tags": [2, 4],
+      "image": "https://sm.ign.com/ign_sl/cover/g/god-of-war/god-of-war_21zh.jpg"
     },
     {
       "id": 3,
@@ -40,7 +42,8 @@
       "genre": "Sandbox",
       "platform": "Multiplataforma",
       "guides": [1, 2, 3],
-      "tags": [1, 3]
+      "tags": [1, 3],
+      "image": "https://topper4cakes.ie/wp-content/uploads/2023/01/Minecraft-square-Cake-Topper-scaled.jpg"
     }
   ],
   "tags": [
