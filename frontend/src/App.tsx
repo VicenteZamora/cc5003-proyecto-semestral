@@ -1,35 +1,102 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import axios from "axios";
+import { useEffect, useState } from "react";
+import {
+  BrowserRouter,
+  Link,
+  Route,
+  Routes,
+  useParams,
+} from "react-router-dom";
+import type { Game, Guide } from "./interfaces";
 
-function App() {
-  const [count, setCount] = useState(0)
+function GameComponent({ game }: { game: Game }) {
+  return (
+    <div>
+      <p>{game.name} </p>
+    </div>
+  );
+}
+
+function GuideComponent() {
+  const { id } = useParams();
+  const [guide, setGuide] = useState<Guide>();
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3001/guides/${id}`)
+      .then((json) => setGuide(json.data))
+      .catch((err) => console.log(err));
+  }, [id]);
+  return (
+    <>
+      {guide ? (
+        <div>
+          <p>{guide.tags} </p>
+          <p>{guide.title} </p>
+          <p> {guide.content}</p>
+        </div>
+      ) : (
+        <div>NO ENCONTRADO</div>
+      )}
+    </>
+  );
+}
+
+function GameInfo() {
+  const { id } = useParams();
+  const [game, setGame] = useState<Game>();
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3001/games/${id}`)
+      .then((json) => setGame(json.data))
+      .catch((err) => console.log(err));
+  }, [id]);
+  return (
+    <>
+      {game ? (
+        <div>
+          <p>{game.name} </p>
+          <p>{game.genre} </p>
+          <p> {game.platform}</p>
+          {game.guides.map((guideId) => (
+            <div>
+              <Link to={`/guides/${guideId}`}>{guideId}</Link>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div>NO ENCONTRADO</div>
+      )}
+    </>
+  );
+}
+
+function GamesList() {
+  const [games, setGames] = useState<Array<Game>>([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/games")
+      .then((json) => setGames(json.data));
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {games.map((g) => (
+        <GameComponent game={g} />
+      ))}
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<GamesList />} />
+        <Route path="/games/:id" element={<GameInfo />} />
+        <Route path="/guides/:id" element={<GuideComponent />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
