@@ -17,7 +17,7 @@
     { "id": 1, "name": "Juan", "email": "juan@example.com" },
     { "id": 2, "name": "Ana", "email": "ana@example.com" }
   ],
-  "games": [
+ "games": [
     {
       "id": 1,
       "name": "The Legend of Zelda: Breath of the Wild",
@@ -44,6 +44,33 @@
       "guides": [1, 2, 3],
       "tags": [1, 3],
       "image": "https://topper4cakes.ie/wp-content/uploads/2023/01/Minecraft-square-Cake-Topper-scaled.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Street Fighter VI",
+      "genre": "Pelea",
+      "platform": "Multiplataforma",
+      "guides": [1, 2],
+      "tags": [4],
+      "image": "https://assets-prd.ignimgs.com/2023/06/03/sf6-1685752562145.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Mario Kart 8 Deluxe",
+      "genre": "Carreras",
+      "platform": "Nintendo Switch",
+      "guides": [2, 3],
+      "tags": [3],
+      "image": "https://assets1.ignimgs.com/2019/05/31/mario-kart-8-deluxe---button-1559265583166.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Hollow Knight",
+      "genre": "Metroidvania",
+      "platform": "Multiplataforma",
+      "guides": [1, 3],
+      "tags": [1],
+      "image": "https://www.pngplay.com/wp-content/uploads/11/Hollow-Knight-Logo-PNG-Photos.png"
     }
   ],
   "tags": [
