@@ -3,11 +3,21 @@ import { Link } from "react-router-dom";
 
 function GameComponent({ game }: { game: Game }) {
   return (
-    // Prueba, la idea es que las img sean cuadradas para no pelear con los width y height
-    <Link to={`/games/${game.id}`} className="game-card">
-      <img src={game.image} alt={game.name} style={{ width: "10%", height: "auto" }} />
-    </Link>
+    <div className="group cursor-pointer relative">
+      <Link
+        to={`/games/${game.id}`}
+      >
+        <div className="group cursor-pointer relative">
+          <img
+            src={game.image}
+            alt={game.name}
+            className="bg-gray-800 w-full h-48 object-cover rounded-lg transition-transform transform scale-100 group-hover:scale-105"
+          />
+        </div>
+      </Link>
+    </div>
   );
 }
 
 export default GameComponent;
+
