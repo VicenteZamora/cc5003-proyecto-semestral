@@ -7,9 +7,7 @@ Integrantes:
 - Vicente Zamora S.
 
 ## Uso
-Frontend:
-- `cd frontend` y luego `npm run dev`.
-
-Backend:
-- `cd backend` y luego `npm run start`.
-
+1. Se requiere Node.js, instálelo para su sistema operativo siguiendo las instrucciones en este [link](https://nodejs.org/en/download)
+2. Clone el repositorio.
+3. Cambie a la carpeta asociada con `cd frontend/backend` y ejecute `npm install`.
+4. Para ejecutar el frontend utilice `npm run dev`, mientras que para el backend, `npm run start`.
