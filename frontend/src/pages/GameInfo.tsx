@@ -6,29 +6,54 @@ import type { Game } from "../interfaces";
 function GameInfo() {
   const { id } = useParams();
   const [game, setGame] = useState<Game>();
+
   useEffect(() => {
     axios
       .get(`http://localhost:3001/games/${id}`)
       .then((json) => setGame(json.data))
       .catch((err) => console.log(err));
   }, [id]);
+
   return (
-    <>
-      {game ? (
-        <div>
-          <p>{game.name} </p>
-          <p>{game.genre} </p>
-          <p> {game.platform}</p>
-          {game.guides.map((guideId) => (
-            <div>
-              <Link to={`/guides/${guideId}`}>{guideId}</Link>
+    <section className="py-20 bg-gray-900 min-h-screen">
+      <div className="container mx-auto px-6">
+        {game ? (
+          <div className="bg-gray-800 rounded-xl shadow-lg p-6 max-w-3xl mx-auto">
+            {/* Nombre del juego */}
+            <h1 className="text-3xl font-bold text-white mb-4">{game.name}</h1>
+
+            {/* Género y plataforma */}
+            <div className="flex flex-wrap gap-4 mb-6">
+              <span className="bg-gray-700 text-white px-3 py-1 rounded-full">
+                {game.genre}
+              </span>
+              <span className="bg-gray-700 text-white px-3 py-1 rounded-full">
+                {game.platform}
+              </span>
             </div>
-          ))}
-        </div>
-      ) : (
-        <div>NO ENCONTRADO</div>
-      )}
-    </>
+
+            {/* Guías */}
+            {game.guides && game.guides.length > 0 && (
+              <div className="flex flex-wrap gap-3">
+                {game.guides.map((guideId) => (
+                  <Link
+                    key={guideId}
+                    to={`/guides/${guideId}`}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition transform hover:scale-105"
+                  >
+                    Guía {guideId}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="text-white text-center text-xl mt-10">
+            
+          </div>
+        )}
+      </div>
+    </section>
   );
 }
 
