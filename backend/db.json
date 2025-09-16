@@ -1,95 +1,276 @@
 {
-  "posts": [
+  "posts": [],
+  "users": [],
+  "games": [
     {
       "id": 1,
-      "title": "Primer post",
-      "content": "Hola mundo",
-      "juego": [1]
-    },
-    {
-      "id": 2,
-      "title": "Segundo post",
-      "content": "Este es un ejemplo",
-      "juego": [2]
-    }
-  ],
-  "users": [
-    { "id": 1, "name": "Juan", "email": "juan@example.com" },
-    { "id": 2, "name": "Ana", "email": "ana@example.com" }
-  ],
- "games": [
-    {
-      "id": 1,
-      "name": "The Legend of Zelda: Breath of the Wild",
-      "genre": "Aventura",
-      "platform": "Nintendo Switch",
-      "guides": [1, 2, 3],
-      "tags": [1],
-      "image": "https://assets-prd.ignimgs.com/2022/06/14/zelda-breath-of-the-wild-1655249167687.jpg"
-    },
-    {
-      "id": 2,
-      "name": "God of War",
-      "genre": "Acción",
-      "platform": "PlayStation 4",
-      "guides": [1, 2, 3],
-      "tags": [2, 4],
-      "image": "https://sm.ign.com/ign_sl/cover/g/god-of-war/god-of-war_21zh.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Minecraft",
-      "genre": "Sandbox",
-      "platform": "Multiplataforma",
-      "guides": [1, 2, 3],
-      "tags": [1, 3],
-      "image": "https://topper4cakes.ie/wp-content/uploads/2023/01/Minecraft-square-Cake-Topper-scaled.jpg"
-    },
-    {
-      "id": 4,
       "name": "Street Fighter VI",
       "genre": "Pelea",
       "platform": "Multiplataforma",
-      "guides": [1, 2],
-      "tags": [4],
-      "image": "https://assets-prd.ignimgs.com/2023/06/03/sf6-1685752562145.jpg"
+      "guides": [
+        1,
+        2
+      ],
+      "tags": [
+        1,
+        2
+      ],
+      "image": "/images/street_fighter_vi.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Tekken 8",
+      "genre": "Pelea",
+      "platform": "Multiplataforma",
+      "guides": [
+        3,
+        4
+      ],
+      "tags": [
+        1,
+        2
+      ],
+      "image": "/images/tekken_8.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Mortal Kombat 11",
+      "genre": "Pelea",
+      "platform": "Multiplataforma",
+      "guides": [
+        5,
+        6
+      ],
+      "tags": [
+        1,
+        2
+      ],
+      "image": "/images/mortal_kombat_11.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Guilty Gear Strive",
+      "genre": "Pelea",
+      "platform": "Multiplataforma",
+      "guides": [
+        7,
+        8
+      ],
+      "tags": [
+        1,
+        2
+      ],
+      "image": "/images/guilty_gear_strive.jpg"
     },
     {
       "id": 5,
-      "name": "Mario Kart 8 Deluxe",
-      "genre": "Carreras",
-      "platform": "Nintendo Switch",
-      "guides": [2, 3],
-      "tags": [3],
-      "image": "https://assets1.ignimgs.com/2019/05/31/mario-kart-8-deluxe---button-1559265583166.jpg"
+      "name": "King of Fighters XV",
+      "genre": "Pelea",
+      "platform": "Multiplataforma",
+      "guides": [
+        9,
+        10
+      ],
+      "tags": [
+        1,
+        2
+      ],
+      "image": "/images/king_of_fighters_xv.jpg"
     },
     {
       "id": 6,
-      "name": "Hollow Knight",
-      "genre": "Metroidvania",
+      "name": "Dragon Ball FighterZ",
+      "genre": "Pelea",
       "platform": "Multiplataforma",
-      "guides": [1, 3],
-      "tags": [1],
-      "image": "https://www.pngplay.com/wp-content/uploads/11/Hollow-Knight-Logo-PNG-Photos.png"
+      "guides": [
+        11,
+        12
+      ],
+      "tags": [
+        1,
+        2
+      ],
+      "image": "/images/dragon_ball_fighterz.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Super Smash Bros. Ultimate",
+      "genre": "Pelea",
+      "platform": "Nintendo Switch",
+      "guides": [
+        13,
+        14
+      ],
+      "tags": [
+        1,
+        2
+      ],
+      "image": "/images/super_smash_bros_ultimate.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Soulcalibur VI",
+      "genre": "Pelea",
+      "platform": "Multiplataforma",
+      "guides": [
+        15,
+        16
+      ],
+      "tags": [
+        1,
+        2
+      ],
+      "image": "/images/soulcalibur_vi.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Injustice 2",
+      "genre": "Pelea",
+      "platform": "Multiplataforma",
+      "guides": [
+        17,
+        18
+      ],
+      "tags": [
+        1,
+        2
+      ],
+      "image": "/images/injustice_2.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Virtua Fighter 5: Ultimate Showdown",
+      "genre": "Pelea",
+      "platform": "PlayStation",
+      "guides": [
+        19,
+        20
+      ],
+      "tags": [
+        1,
+        2
+      ],
+      "image": "/images/virtua_fighter_5_ultimate_showdown.jpg"
     }
   ],
   "tags": [
-    { "id ": 1, "tag": "Aventura" },
-    { "id ": 2, "tag": "Accion" },
-    { "id ": 3, "tag": "Deporte" },
-    { "id ": 4, "tag": "Pelea" }
+    {
+      "id": 1,
+      "tag": "Pelea"
+    },
+    {
+      "id": 2,
+      "tag": "Competitivo"
+    },
+    {
+      "id": 3,
+      "tag": "Arcade"
+    },
+    {
+      "id": 4,
+      "tag": "Multijugador"
+    }
   ],
-  "guides": [{
-    "id": 1,
-    "title": "Guía de inicio rápido",
-    "content": "Esta guía te ayudará a comenzar rápidamente en el juego."
-  }, {
-    "id": 2,
-    "title": "Estrategias avanzadas",
-    "content": "Consejos y trucos para jugadores avanzados."
-  }, {
-    "id": 3,
-    "title": "Recursos y ubicaciones",
-    "content": "Encuentra los mejores recursos y ubicaciones en el juego."
-  }]
+  "guides": [
+    {
+      "id": 1,
+      "title": "Guía de inicio - Street Fighter VI",
+      "content": "Primeros pasos para aprender lo básico en Street Fighter VI."
+    },
+    {
+      "id": 2,
+      "title": "Estrategias avanzadas - Street Fighter VI",
+      "content": "Consejos y tácticas avanzadas para dominar en Street Fighter VI."
+    },
+    {
+      "id": 3,
+      "title": "Guía de inicio - Tekken 8",
+      "content": "Primeros pasos para aprender lo básico en Tekken 8."
+    },
+    {
+      "id": 4,
+      "title": "Estrategias avanzadas - Tekken 8",
+      "content": "Consejos y tácticas avanzadas para dominar en Tekken 8."
+    },
+    {
+      "id": 5,
+      "title": "Guía de inicio - Mortal Kombat 11",
+      "content": "Primeros pasos para aprender lo básico en Mortal Kombat 11."
+    },
+    {
+      "id": 6,
+      "title": "Estrategias avanzadas - Mortal Kombat 11",
+      "content": "Consejos y tácticas avanzadas para dominar en Mortal Kombat 11."
+    },
+    {
+      "id": 7,
+      "title": "Guía de inicio - Guilty Gear Strive",
+      "content": "Primeros pasos para aprender lo básico en Guilty Gear Strive."
+    },
+    {
+      "id": 8,
+      "title": "Estrategias avanzadas - Guilty Gear Strive",
+      "content": "Consejos y tácticas avanzadas para dominar en Guilty Gear Strive."
+    },
+    {
+      "id": 9,
+      "title": "Guía de inicio - King of Fighters XV",
+      "content": "Primeros pasos para aprender lo básico en King of Fighters XV."
+    },
+    {
+      "id": 10,
+      "title": "Estrategias avanzadas - King of Fighters XV",
+      "content": "Consejos y tácticas avanzadas para dominar en King of Fighters XV."
+    },
+    {
+      "id": 11,
+      "title": "Guía de inicio - Dragon Ball FighterZ",
+      "content": "Primeros pasos para aprender lo básico en Dragon Ball FighterZ."
+    },
+    {
+      "id": 12,
+      "title": "Estrategias avanzadas - Dragon Ball FighterZ",
+      "content": "Consejos y tácticas avanzadas para dominar en Dragon Ball FighterZ."
+    },
+    {
+      "id": 13,
+      "title": "Guía de inicio - Super Smash Bros. Ultimate",
+      "content": "Primeros pasos para aprender lo básico en Super Smash Bros. Ultimate."
+    },
+    {
+      "id": 14,
+      "title": "Estrategias avanzadas - Super Smash Bros. Ultimate",
+      "content": "Consejos y tácticas avanzadas para dominar en Super Smash Bros. Ultimate."
+    },
+    {
+      "id": 15,
+      "title": "Guía de inicio - Soulcalibur VI",
+      "content": "Primeros pasos para aprender lo básico en Soulcalibur VI."
+    },
+    {
+      "id": 16,
+      "title": "Estrategias avanzadas - Soulcalibur VI",
+      "content": "Consejos y tácticas avanzadas para dominar en Soulcalibur VI."
+    },
+    {
+      "id": 17,
+      "title": "Guía de inicio - Injustice 2",
+      "content": "Primeros pasos para aprender lo básico en Injustice 2."
+    },
+    {
+      "id": 18,
+      "title": "Estrategias avanzadas - Injustice 2",
+      "content": "Consejos y tácticas avanzadas para dominar en Injustice 2."
+    },
+    {
+      "id": 19,
+      "title": "Guía de inicio - Virtua Fighter 5: Ultimate Showdown",
+      "content": "Primeros pasos para aprender lo básico en Virtua Fighter 5: Ultimate Showdown."
+    },
+    {
+      "id": 20,
+      "title": "Estrategias avanzadas - Virtua Fighter 5: Ultimate Showdown",
+      "content": "Consejos y tácticas avanzadas para dominar en Virtua Fighter 5: Ultimate Showdown."
+    }
+  ]
 }
