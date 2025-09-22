@@ -7,6 +7,7 @@
       "name": "Street Fighter VI",
       "genre": "Pelea",
       "platform": "Multiplataforma",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec commodo ligula. Aliquam consequat pharetra eleifend. Curabitur rhoncus nisl ut rhoncus fermentum. Sed cursus, augue vel varius gravida, sapien eros vehicula lorem, a euismod felis lacus sit amet erat. Duis tempor, velit nec faucibus faucibus, nisi est tempor lectus, eget.",
       "guides": [
         1,
         2
@@ -22,6 +23,7 @@
       "name": "Tekken 8",
       "genre": "Pelea",
       "platform": "Multiplataforma",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec commodo ligula. Aliquam consequat pharetra eleifend. Curabitur rhoncus nisl ut rhoncus fermentum. Sed cursus, augue vel varius gravida, sapien eros vehicula lorem, a euismod felis lacus sit amet erat. Duis tempor, velit nec faucibus faucibus, nisi est tempor lectus, eget.",
       "guides": [
         3,
         4
@@ -37,6 +39,7 @@
       "name": "Mortal Kombat 11",
       "genre": "Pelea",
       "platform": "Multiplataforma",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec commodo ligula. Aliquam consequat pharetra eleifend. Curabitur rhoncus nisl ut rhoncus fermentum. Sed cursus, augue vel varius gravida, sapien eros vehicula lorem, a euismod felis lacus sit amet erat. Duis tempor, velit nec faucibus faucibus, nisi est tempor lectus, eget.",
       "guides": [
         5,
         6
@@ -52,6 +55,7 @@
       "name": "Guilty Gear Strive",
       "genre": "Pelea",
       "platform": "Multiplataforma",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec commodo ligula. Aliquam consequat pharetra eleifend. Curabitur rhoncus nisl ut rhoncus fermentum. Sed cursus, augue vel varius gravida, sapien eros vehicula lorem, a euismod felis lacus sit amet erat. Duis tempor, velit nec faucibus faucibus, nisi est tempor lectus, eget.",
       "guides": [
         7,
         8
@@ -67,6 +71,7 @@
       "name": "King of Fighters XV",
       "genre": "Pelea",
       "platform": "Multiplataforma",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec commodo ligula. Aliquam consequat pharetra eleifend. Curabitur rhoncus nisl ut rhoncus fermentum. Sed cursus, augue vel varius gravida, sapien eros vehicula lorem, a euismod felis lacus sit amet erat. Duis tempor, velit nec faucibus faucibus, nisi est tempor lectus, eget.",
       "guides": [
         9,
         10
@@ -82,6 +87,7 @@
       "name": "Dragon Ball FighterZ",
       "genre": "Pelea",
       "platform": "Multiplataforma",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec commodo ligula. Aliquam consequat pharetra eleifend. Curabitur rhoncus nisl ut rhoncus fermentum. Sed cursus, augue vel varius gravida, sapien eros vehicula lorem, a euismod felis lacus sit amet erat. Duis tempor, velit nec faucibus faucibus, nisi est tempor lectus, eget.",
       "guides": [
         11,
         12
@@ -97,6 +103,7 @@
       "name": "Super Smash Bros. Ultimate",
       "genre": "Pelea",
       "platform": "Nintendo Switch",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec commodo ligula. Aliquam consequat pharetra eleifend. Curabitur rhoncus nisl ut rhoncus fermentum. Sed cursus, augue vel varius gravida, sapien eros vehicula lorem, a euismod felis lacus sit amet erat. Duis tempor, velit nec faucibus faucibus, nisi est tempor lectus, eget.",
       "guides": [
         13,
         14
@@ -112,6 +119,7 @@
       "name": "Soulcalibur VI",
       "genre": "Pelea",
       "platform": "Multiplataforma",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec commodo ligula. Aliquam consequat pharetra eleifend. Curabitur rhoncus nisl ut rhoncus fermentum. Sed cursus, augue vel varius gravida, sapien eros vehicula lorem, a euismod felis lacus sit amet erat. Duis tempor, velit nec faucibus faucibus, nisi est tempor lectus, eget.",
       "guides": [
         15,
         16
@@ -127,6 +135,7 @@
       "name": "Injustice 2",
       "genre": "Pelea",
       "platform": "Multiplataforma",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec commodo ligula. Aliquam consequat pharetra eleifend. Curabitur rhoncus nisl ut rhoncus fermentum. Sed cursus, augue vel varius gravida, sapien eros vehicula lorem, a euismod felis lacus sit amet erat. Duis tempor, velit nec faucibus faucibus, nisi est tempor lectus, eget.",
       "guides": [
         17,
         18
@@ -142,6 +151,7 @@
       "name": "Virtua Fighter 5: Ultimate Showdown",
       "genre": "Pelea",
       "platform": "PlayStation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec commodo ligula. Aliquam consequat pharetra eleifend. Curabitur rhoncus nisl ut rhoncus fermentum. Sed cursus, augue vel varius gravida, sapien eros vehicula lorem, a euismod felis lacus sit amet erat. Duis tempor, velit nec faucibus faucibus, nisi est tempor lectus, eget.",
       "guides": [
         19,
         20

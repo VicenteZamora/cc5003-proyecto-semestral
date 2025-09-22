@@ -3,6 +3,7 @@ export interface Game {
   name: string;
   genre: string;
   platform: string;
+  description: string;
   guides: Array<number>;
   image: string;
 }

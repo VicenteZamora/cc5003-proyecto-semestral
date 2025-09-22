@@ -31,7 +31,12 @@ function GameInfo() {
                 {game.platform}
               </span>
             </div>
-
+            {/* Descripcion */}
+            <div className="flex flex-wrap gap-4 mb-6">
+              <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+                {game.description}
+              </p>
+            </div>
             {/* Guías */}
             {game.guides && game.guides.length > 0 && (
               <div className="flex flex-wrap gap-3">
