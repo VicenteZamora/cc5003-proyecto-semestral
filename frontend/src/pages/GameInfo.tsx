@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import type { Game } from "../interfaces";
+import { FormGuide } from "../components/FormGuide";
 
 function GameInfo() {
   const { id } = useParams();
@@ -16,7 +17,7 @@ function GameInfo() {
 
   return (
     <section className="py-20 bg-gray-900 min-h-screen">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 space-y-6">
         {game ? (
           <div className="bg-gray-800 rounded-xl shadow-lg p-6 max-w-3xl mx-auto">
             {/* Nombre del juego */}
@@ -33,9 +34,9 @@ function GameInfo() {
             </div>
             {/* Descripcion */}
             <div className="flex flex-wrap gap-4 mb-6">
-              <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                {game.description}
-              </p>
+            <p className="text-gray-300 leading-relaxed whitespace-pre-line">
+              {game.description}
+            </p>
             </div>
             {/* Guías */}
             {game.guides && game.guides.length > 0 && (
@@ -54,9 +55,12 @@ function GameInfo() {
           </div>
         ) : (
           <div className="text-white text-center text-xl mt-10">
-            
           </div>
         )}
+        <div className="bg-gray-800 rounded-xl shadow-lg p-6 max-w-3xl mx-auto">
+          <h1 className="text-3xl font-bold text-white mb-6">Crea una guía</h1>
+            <FormGuide />
+        </div>
       </div>
     </section>
   );
