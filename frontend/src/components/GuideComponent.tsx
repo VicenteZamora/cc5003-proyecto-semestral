@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import type { Guide } from "../interfaces";
+import { FormGuide } from "./FormGuide";
 
 function GuideComponent() {
   const { id } = useParams();
@@ -19,7 +20,7 @@ function GuideComponent() {
 
   return (
     <section className="py-20 bg-gray-900 min-h-screen">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 space-y-6">
         {guide ? (
           <div className="bg-gray-800 rounded-xl shadow-lg p-6 max-w-3xl mx-auto">
             {/* Tags */}
@@ -49,6 +50,10 @@ function GuideComponent() {
             NO ENCONTRADO
           </div>
         )}
+        <div className="bg-gray-800 rounded-xl shadow-lg p-6 max-w-3xl mx-auto">
+          <h1 className="text-3xl font-bold text-white mb-6">Comenta</h1>
+            <FormGuide />
+        </div>
       </div>
     </section>
   );
