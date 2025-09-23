@@ -12,8 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<GamesList />} />
         <Route path="/games/:id" element={<GameInfo />} />
-        <Route path="/guides/:id" element={<GuideComponent />} />
-        <Route path="*" element={<NotFound />} />      
+        <Route path="/games/:id/guides/:guideId" element={<GuideComponent />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

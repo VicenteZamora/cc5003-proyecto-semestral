@@ -1,12 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import type { Guide } from "../interfaces";
+import type { Comment, Guide } from "../interfaces";
 import { FormGuide } from "./FormGuide";
 
 function GuideComponent() {
-  const { id } = useParams();
+  const id = useParams().guideId;
   const [guide, setGuide] = useState<Guide | null>(null);
+  const [comments, setComments] = useState<Array<Comment>>([]);
+
+  const addComment = (content: string) => {
+    const comment = { content, author: "tbi" };
+    setComments([...comments, comment]);
+  };
 
   useEffect(() => {
     axios
@@ -38,7 +44,9 @@ function GuideComponent() {
             )}
 
             {/* Título */}
-            <h1 className="text-3xl font-bold text-white mb-6">{guide.title}</h1>
+            <h1 className="text-3xl font-bold text-white mb-6">
+              {guide.title}
+            </h1>
 
             {/* Contenido */}
             <p className="text-gray-300 leading-relaxed whitespace-pre-line">
@@ -50,9 +58,19 @@ function GuideComponent() {
             NO ENCONTRADO
           </div>
         )}
+        {comments.length > 0 && (
+          <div className="bg-gray-800 rounded-xl shadow-lg p-6 max-w-3xl mx-auto text-white">
+            <h1 className="text-3xl font-bold text-white mb-6">Comentarios</h1>
+            {comments.map((c) => (
+              <div className="bg-gray-900 rounded-md shadow-lg my-2 px-2 w-full mx-auto text-white">
+                <p>{c.content}</p>
+              </div>
+            ))}
+          </div>
+        )}
         <div className="bg-gray-800 rounded-xl shadow-lg p-6 max-w-3xl mx-auto">
           <h1 className="text-3xl font-bold text-white mb-6">Comenta</h1>
-            <FormGuide />
+          <FormGuide callback={addComment} />
         </div>
       </div>
     </section>

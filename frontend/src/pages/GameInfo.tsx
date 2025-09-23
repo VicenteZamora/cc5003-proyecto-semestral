@@ -44,7 +44,7 @@ function GameInfo() {
                 {game.guides.map((guideId) => (
                   <Link
                     key={guideId}
-                    to={`/guides/${guideId}`}
+                    to={`/games/${id}/guides/${guideId}`}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition transform hover:scale-105"
                   >
                     Guía {guideId}

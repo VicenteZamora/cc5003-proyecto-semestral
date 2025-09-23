@@ -1,10 +1,22 @@
 import { useState } from "react";
 
-export function FormGuide() {
+export function FormGuide({
+  callback,
+  title,
+}: {
+  callback?: (content: string, title?: string) => void;
+  title?: string;
+}) {
   const [content, setContent] = useState<string>("");
 
+  const addComment = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    callback(content);
+    setContent("");
+  };
+
   return (
-    <form className="space-y-4">
+    <form className="space-y-4" onSubmit={addComment}>
       <textarea
         placeholder="Add a comment"
         value={content}

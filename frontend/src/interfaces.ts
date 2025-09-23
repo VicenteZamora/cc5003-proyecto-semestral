@@ -12,4 +12,10 @@ export interface Guide {
   tags: string;
   title: string;
   content: string;
+  author: string;
+}
+
+export interface Comment {
+  content: string;
+  author: string;
 }
