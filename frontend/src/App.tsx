@@ -4,6 +4,7 @@ import GameInfo from "./pages/GameInfo";
 import GamesList from "./pages/GamesList";
 import { NotFound } from "./pages/NotFound";
 import { NavBar } from "./components/NavBar";
+import LoginComponent from "./pages/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<GamesList />} />
         <Route path="/games/:id" element={<GameInfo />} />
         <Route path="/games/:id/guides/:guideId" element={<GuideComponent />} />
+        <Route path="/login" element={<LoginComponent />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

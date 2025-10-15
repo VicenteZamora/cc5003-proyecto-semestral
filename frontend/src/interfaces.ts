@@ -19,3 +19,10 @@ export interface Comment {
   content: string;
   author: string;
 }
+
+export interface User {
+  id: string;
+  username: string;
+  email: string;
+  posts: Array<string>;
+}
