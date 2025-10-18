@@ -21,10 +21,14 @@ const createGuide = async (req: Request, res: Response, next: NextFunction) => {
     const guide = req.body as Guide;
     const user = await UserModel.findById(req.userId);
 
-    guide.author = user!._id;
-    const savedGuide = await new guideModel(guide).save();
+    if (user) {
+      guide.author = user._id;
+      const savedGuide = await new guideModel(guide).save();
 
-    res.status(201).json(savedGuide);
+      res.status(201).json(savedGuide);
+    } else {
+      res.status(400).json({ error: "User not found" });
+    }
   } catch (error) {
     next(error);
   }
@@ -35,17 +39,21 @@ const updateGuide = async (req: Request, res: Response, next: NextFunction) => {
     const guide = req.body as Guide;
     const user = await UserModel.findById(req.userId);
 
-    guide.author = user!._id;
-    const updatedGuide = await guideModel.findByIdAndUpdate(
-      req.params.id,
-      guide,
-      {
-        new: true,
-      },
-    );
+    if (user) {
+      guide.author = user._id;
+      const updatedGuide = await guideModel.findOneAndUpdate(
+        { _id: req.params.id, author: user._id },
+        guide,
+        {
+          new: true,
+        },
+      );
 
-    // TODO: give the status code... im not sure which one is the right one
-    res.json(updatedGuide);
+      // TODO: give the status code... im not sure which one is the right one
+      res.json(updatedGuide);
+    } else {
+      res.status(400).json({ error: "User not found" });
+    }
   } catch (error) {
     next(error);
   }
@@ -55,12 +63,16 @@ const deleteGuide = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const user = await UserModel.findById(req.userId);
 
-    await guideModel.findOneAndDelete({
-      _id: req.params.id,
-      author: user!._id,
-    });
+    if (user) {
+      await guideModel.findOneAndDelete({
+        _id: req.params.id,
+        author: user._id,
+      });
 
-    res.status(204).end();
+      res.status(204).end();
+    } else {
+      res.status(400).json({ error: "User not found" });
+    }
   } catch (error) {
     next(error);
   }
