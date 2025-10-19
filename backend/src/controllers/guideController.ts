@@ -2,6 +2,20 @@ import { Request, Response, NextFunction } from "express";
 import { Guide, guideModel } from "../models/guide";
 import { UserModel } from "../models/user";
 
+const getAllGuides = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const guides = await guideModel.find({});
+
+    res.json(guides);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const getGuideById = async (
   req: Request,
   res: Response,
@@ -78,4 +92,4 @@ const deleteGuide = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export { getGuideById, createGuide, updateGuide, deleteGuide };
+export { getAllGuides, getGuideById, createGuide, updateGuide, deleteGuide };
