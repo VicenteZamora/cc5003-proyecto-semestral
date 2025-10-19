@@ -11,6 +11,7 @@ import {
   unknownEndpoint,
   withUser,
 } from "./utils/middleware";
+import path from "path";
 
 const app = express();
 
@@ -25,6 +26,13 @@ if (uri) {
     .then(() => {
       console.log("Connected to MongoDB");
     });
+}
+
+if (process.env.NODE_ENV !== "test") {
+  app.use(express.static("dist"));
+  app.get(/.*/, (_, response) => {
+    response.sendFile(path.resolve(__dirname, "../dist", "index.html"));
+  });
 }
 
 app.use(express.json());
