@@ -5,7 +5,12 @@ import postRoutes from "./routes/postRoutes";
 import userRoutes from "./routes/userRoutes";
 import authRoutes from "./routes/authRoutes";
 import config from "./utils/config";
-import { withUser } from "./utils/middleware";
+import {
+  errorHandler,
+  requestLogger,
+  unknownEndpoint,
+  withUser,
+} from "./utils/middleware";
 
 const app = express();
 
@@ -18,11 +23,15 @@ if (uri) {
 }
 
 app.use(express.json());
+app.use(requestLogger);
 
 app.use("/api/guides", withUser, guideRoutes);
 app.use("/api/posts", withUser, postRoutes);
 app.use("/api/users", withUser, userRoutes);
 app.use("/api/login", withUser, authRoutes);
+
+app.use(errorHandler);
+app.use(unknownEndpoint);
 
 const port = config.PORT;
 app.listen(port, () => {
