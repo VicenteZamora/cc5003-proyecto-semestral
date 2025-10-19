@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import guideRoutes from "./routes/guideRoutes";
 import postRoutes from "./routes/postRoutes";
 import userRoutes from "./routes/userRoutes";
@@ -12,6 +13,7 @@ import {
   withUser,
 } from "./utils/middleware";
 import path from "path";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -35,6 +37,8 @@ if (process.env.NODE_ENV !== "test") {
   });
 }
 
+app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
 app.use(requestLogger);
 

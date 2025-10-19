@@ -10,7 +10,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
     const passwordHash = await bcrypt.hash(user.passwordHash, saltRounds);
     user.passwordHash = passwordHash;
 
-    const savedUser = new UserModel(user).save();
+    const savedUser = await new UserModel(user).save();
 
     res.status(201).json(savedUser);
   } catch (error) {
