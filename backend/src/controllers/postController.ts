@@ -2,6 +2,16 @@ import { Request, Response, NextFunction } from "express";
 import { Post, postModel } from "../models/post";
 import { UserModel } from "../models/user";
 
+const getAllPosts = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const posts = await postModel.find({});
+
+    res.json(posts);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const getPostById = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const post = await postModel.findById(req.params.id);
@@ -74,4 +84,4 @@ const deletePost = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export { getPostById, createPost, updatePost, deletePost };
+export { getAllPosts, getPostById, createPost, updatePost, deletePost };
