@@ -11,7 +11,10 @@ export default function LoginComponent() {
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const user = await login({ username, password });
+      await login({
+        username,
+        password,
+      });
       setUsername("");
       setPassword("");
     } catch (exception) {

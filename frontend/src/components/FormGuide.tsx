@@ -2,16 +2,14 @@ import { useState } from "react";
 
 export function FormGuide({
   callback,
-  title,
 }: {
   callback?: (content: string, title?: string) => void;
-  title?: string;
 }) {
   const [content, setContent] = useState<string>("");
 
   const addComment = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    callback(content);
+    if (callback) callback(content);
     setContent("");
   };
 
