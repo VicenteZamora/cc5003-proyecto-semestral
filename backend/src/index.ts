@@ -1,7 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import guideRoutes from "./routes/guideRoutes";
+import postRoutes from "./routes/postRoutes";
 import userRoutes from "./routes/userRoutes";
+import authRoutes from "./routes/authRoutes";
 import config from "./utils/config";
 import { withUser } from "./utils/middleware";
 
@@ -18,7 +20,9 @@ if (uri) {
 app.use(express.json());
 
 app.use("/api/guides", withUser, guideRoutes);
+app.use("/api/posts", withUser, postRoutes);
 app.use("/api/users", withUser, userRoutes);
+app.use("/api/login", withUser, authRoutes);
 
 const port = config.PORT;
 app.listen(port, () => {
