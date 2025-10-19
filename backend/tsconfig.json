@@ -10,5 +10,8 @@
       "./node_modules/@types"
     ]
   },
-  "extends": "@tsconfig/recommended/tsconfig.json"
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "exclude": [
+    "tests"
+  ]
 }
