@@ -17,9 +17,14 @@ const app = express();
 const uri = config.MONGODB_URI;
 
 if (uri) {
-  mongoose.connect(uri, { dbName: config.MONGODB_DBNAME }).catch((error) => {
-    console.log("error connecting to MongoDB:", error.message);
-  });
+  mongoose
+    .connect(uri, { dbName: config.MONGODB_DBNAME })
+    .catch((error) => {
+      console.log("Error connecting to MongoDB:", error.message);
+    })
+    .then(() => {
+      console.log("Connected to MongoDB");
+    });
 }
 
 app.use(express.json());
