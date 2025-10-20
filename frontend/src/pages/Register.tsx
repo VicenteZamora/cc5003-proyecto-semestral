@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { register } from "../services/register";
 
 export default function RegisterComponent() {
@@ -6,23 +7,19 @@ export default function RegisterComponent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handleRegister = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      await register({
-        username,
-        email,
-        password,
-      });
+      await register({ username, email, password });
       setUsername("");
       setEmail("");
       setPassword("");
+      navigate("/login"); // redirige al login después de registrar
     } catch (exception) {
-      setErrorMessage("Wrong credentials");
-      setTimeout(() => {
-        setErrorMessage(null);
-      }, 5000);
+      setErrorMessage("Error al crear la cuenta");
+      setTimeout(() => setErrorMessage(null), 5000);
     }
   };
 
@@ -91,6 +88,14 @@ export default function RegisterComponent() {
               className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 cursor-pointer"
             >
               Registrarse
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate("/login")}
+              className="w-full py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition duration-300 cursor-pointer"
+            >
+              Volver al inicio de sesión
             </button>
           </div>
         </form>
