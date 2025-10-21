@@ -40,6 +40,7 @@ const createGuide = async (req: Request, res: Response, next: NextFunction) => {
     if (user) {
       guide.author = user._id;
       const savedGuide = await new guideModel(guide).save();
+      savedGuide.populate("author", "username");
 
       user.guides = user.guides.concat(savedGuide._id);
       await user.save();

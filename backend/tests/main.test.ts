@@ -111,13 +111,13 @@ describe("Guides API", () => {
       .expect(201);
 
     assert.strictEqual(res.body.content, guide.content);
+    assert.equal(res.body.author.username, loginUser.username);
     guideId = res.body.id;
 
     const db_user = await UserModel.findOne({
       username: loginUser.username,
     });
 
-    assert.equal(res.body.author, db_user?._id);
     // the author has the post in their posts array
     assert.ok(db_user?.guides.includes(res.body.id), "Post not in user posts");
   });
