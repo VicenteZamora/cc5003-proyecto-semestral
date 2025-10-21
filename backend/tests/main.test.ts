@@ -121,6 +121,13 @@ describe("Guides API", () => {
     // the author has the post in their posts array
     assert.ok(db_user?.guides.includes(res.body.id), "Post not in user posts");
   });
+
+  test("fetch the created guide", async () => {
+    const guide = await agent.get(`/api/guides/${guideId}`).expect(200);
+
+    assert.equal(guide.body.id, guideId);
+    assert.equal(guide.body.author.username, loginUser.username);
+  });
 });
 
 after(async () => {
