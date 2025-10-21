@@ -11,3 +11,16 @@ Integrantes:
 2. Clone el repositorio.
 3. Cambie a la carpeta asociada con `cd frontend/backend` y ejecute `npm install`.
 4. Para ejecutar el frontend utilice `npm run dev`, mientras que para el backend, `npm run start`.
+
+### Variables de entorno requeridas para el backend
+
+- MONGODB_URI
+- TEST_MONGODB_URI
+- MONGODB_DBNAME
+- TEST_MONGODB_DBNAME
+- PORT
+- HOST
+
+### instrucciones de ejecución local
+
+Los comandos para correr `backend/frontend` se encuentran en los `package.json` respectivos.
