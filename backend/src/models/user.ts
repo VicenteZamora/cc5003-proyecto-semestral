@@ -39,11 +39,13 @@ userSchema.set("toJSON", {
       _id?: mongoose.Types.ObjectId;
       __v?: number;
       passwordHash?: string;
+      email?: string;
     },
   ) => {
     obj.id = obj._id?.toString();
     delete obj._id;
     delete obj.__v;
     delete obj.passwordHash;
+    delete obj.email;
   },
 });

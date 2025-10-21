@@ -8,7 +8,7 @@ const getAllGuides = async (
   next: NextFunction,
 ) => {
   try {
-    const guides = await guideModel.find({});
+    const guides = await guideModel.find({}).populate("author", "username");
 
     res.json(guides);
   } catch (error) {
@@ -22,7 +22,9 @@ const getGuideById = async (
   next: NextFunction,
 ) => {
   try {
-    const guide = await guideModel.findById(req.params.id);
+    const guide = await guideModel
+      .findById(req.params.id)
+      .populate("author", "username");
 
     res.json(guide);
   } catch (error) {
