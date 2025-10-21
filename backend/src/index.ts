@@ -10,7 +10,6 @@ import {
   errorHandler,
   requestLogger,
   unknownEndpoint,
-  withUser,
 } from "./utils/middleware";
 import path from "path";
 import cookieParser from "cookie-parser";
@@ -42,10 +41,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(requestLogger);
 
-app.use("/api/guides", withUser, guideRoutes);
-app.use("/api/posts", withUser, postRoutes);
-app.use("/api/users", withUser, userRoutes);
-app.use("/api/login", withUser, authRoutes);
+app.use("/api/guides", guideRoutes);
+app.use("/api/posts", postRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/login", authRoutes);
 
 app.use(errorHandler);
 app.use(unknownEndpoint);
