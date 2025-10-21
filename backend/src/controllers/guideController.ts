@@ -39,6 +39,8 @@ const createGuide = async (req: Request, res: Response, next: NextFunction) => {
       guide.author = user._id;
       const savedGuide = await new guideModel(guide).save();
 
+      user.guides = user.guides.concat(savedGuide._id);
+      await user.save();
       res.status(201).json(savedGuide);
     } else {
       res.status(400).json({ error: "User not found" });

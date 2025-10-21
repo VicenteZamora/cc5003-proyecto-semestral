@@ -6,6 +6,7 @@ export interface User {
   email: string;
   passwordHash: string;
   posts: mongoose.Types.ObjectId[];
+  guides: mongoose.Types.ObjectId[];
 }
 
 const userSchema = new Schema<User>({
@@ -25,6 +26,7 @@ const userSchema = new Schema<User>({
   passwordHash: { type: String, required: true },
   // TODO: Update ref in case the model name changes
   posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
+  guides: [{ type: Schema.Types.ObjectId, ref: "Guide" }],
 });
 
 export const UserModel = mongoose.model<User>("User", userSchema);
