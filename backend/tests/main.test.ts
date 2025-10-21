@@ -20,7 +20,7 @@ describe("User API", () => {
     const db_user: User | null = await UserModel.findById(res.body.id);
 
     assert.ok(db_user, "User not found in database");
-    assert.notEqual(db_user?.passwordHash, user.passwordHash);
+    assert.notEqual(db_user?.passwordHash, user.password);
   });
 
   test("invalid email throws error", async () => {
@@ -44,7 +44,7 @@ describe("User API", () => {
 });
 
 describe("Login API", () => {
-  const loginUser = { username: user.username, password: user.passwordHash };
+  const loginUser = { username: user.username, password: user.password };
 
   test("invalid user", async () => {
     const invalidUser = { ...loginUser };
@@ -94,7 +94,7 @@ describe("Login API", () => {
 
 describe("Guides API", () => {
   const agent = supertest.agent(app);
-  const loginUser = { username: user.username, password: user.passwordHash };
+  const loginUser = { username: user.username, password: user.password };
   let guideId: string;
   test("authenticated author", async () => {
     const guide = {

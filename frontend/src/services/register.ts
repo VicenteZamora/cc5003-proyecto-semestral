@@ -7,7 +7,7 @@ type Credentials = {
 };
 
 export const register = async (credentials: Credentials) => {
-  const response = await axios.post("/api/register", credentials);
+  const response = await axios.post("/api/users", credentials);
 
   return response.data;
 };
