@@ -94,8 +94,9 @@ describe("Login API", () => {
 
 describe("Guides API", () => {
   const agent = supertest.agent(app);
+  const loginUser = { username: user.username, password: user.passwordHash };
+  let guideId: string;
   test("authenticated author", async () => {
-    const loginUser = { username: user.username, password: user.passwordHash };
     const guide = {
       content: "This is another guide",
       title: "Guide Title",
@@ -110,14 +111,15 @@ describe("Guides API", () => {
       .expect(201);
 
     assert.strictEqual(res.body.content, guide.content);
-    assert.strictEqual(res.body.author, loginUser.username);
+    guideId = res.body.id;
 
-    const db_user: User | null = await UserModel.findOne({
+    const db_user = await UserModel.findOne({
       username: loginUser.username,
     });
 
+    assert.equal(res.body.author, db_user?._id);
     // the author has the post in their posts array
-    assert.ok(db_user?.posts.includes(res.body.id), "Post not in user posts");
+    assert.ok(db_user?.guides.includes(res.body.id), "Post not in user posts");
   });
 });
 
