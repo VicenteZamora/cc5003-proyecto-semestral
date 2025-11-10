@@ -10,7 +10,7 @@ function GamesList() {
 
   useEffect(() => {
     axios
-      .get("api/games")
+      .get("/api/games")
       .then((res) => setGames(res.data))
       .catch((err) => console.error(err));
   }, []);

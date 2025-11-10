@@ -5,6 +5,7 @@ export interface Game {
   platform: string;
   description: string;
   guides?: Guide[];
+  image: string;
 }
 
 export interface Guide {
@@ -54,3 +55,4 @@ export interface UserProfile {
     totalPosts: number;
   };
 }
+

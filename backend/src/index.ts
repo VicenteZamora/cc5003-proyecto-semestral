@@ -31,17 +31,10 @@ if (uri) {
     });
 }
 
-if (process.env.NODE_ENV === "test") {
-  app.use("/api/testing", testingRouter);
-} 
-
-if (process.env.NODE_ENV !== "test") {
-  app.use(express.static("dist"));
-  app.get(/.*/, (_, response) => {
-    response.sendFile(path.resolve(__dirname, "../dist", "index.html"));
-  });
-}
-
+app.use(express.static("dist"));
+app.get(/^(?!\/api).*/, (_, response) => {
+  response.sendFile(path.resolve(__dirname, "../dist", "index.html"));
+});
 
 app.use(cors());
 app.use(cookieParser());
@@ -53,6 +46,9 @@ app.use("/api/guides", guideRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/login", authRoutes);
+if (process.env.NODE_ENV === "test") {
+  app.use("/api/testing", testingRouter);
+}
 
 app.use(errorHandler);
 app.use(unknownEndpoint);
