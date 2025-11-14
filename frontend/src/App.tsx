@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AuthProvider } from './context/AuthContext';
 import GuideComponent from "./components/GuideComponent";
 import GameInfo from "./pages/GameInfo";
 import GamesList from "./pages/GamesList";
@@ -10,15 +11,17 @@ import RegisterComponent from "./pages/Register";
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<GamesList />} />
-        <Route path="/games/:id" element={<GameInfo />} />
-        <Route path="/games/:id/guides/:guideId" element={<GuideComponent />} />
-        <Route path="/login" element={<LoginComponent />} />
-        <Route path="/register" element={<RegisterComponent />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AuthProvider>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<GamesList />} />
+          <Route path="/games/:id" element={<GameInfo />} />
+          <Route path="/games/:id/guides/:guideId" element={<GuideComponent />} />
+          <Route path="/login" element={<LoginComponent />} />
+          <Route path="/register" element={<RegisterComponent />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
