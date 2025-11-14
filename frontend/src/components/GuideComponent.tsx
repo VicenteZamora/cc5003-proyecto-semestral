@@ -16,7 +16,7 @@ function GuideComponent() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/guides/${id}`)
+      .get(`/api/guides/${id}`)
       .then((res) => setGuide(res.data))
       .catch((err) => {
         console.error(err);

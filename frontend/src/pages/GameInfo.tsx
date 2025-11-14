@@ -10,7 +10,7 @@ function GameInfo() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/games/${id}`)
+      .get(`/api/games/${id}`)
       .then((json) => setGame(json.data))
       .catch((err) => console.log(err));
   }, [id]);
@@ -41,13 +41,13 @@ function GameInfo() {
             {/* Guías */}
             {game.guides && game.guides.length > 0 && (
               <div className="flex flex-wrap gap-3">
-                {game.guides.map((guideId) => (
+                {game.guides.map((guide) => (
                   <Link
-                    key={guideId}
-                    to={`/games/${id}/guides/${guideId}`}
+                    key={guide.id}
+                    to={`/games/${id}/guides/${guide.id}`}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition transform hover:scale-105"
                   >
-                    Guía {guideId}
+                    {guide.title}
                   </Link>
                 ))}
               </div>
