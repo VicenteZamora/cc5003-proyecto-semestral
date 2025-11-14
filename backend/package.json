@@ -9,7 +9,9 @@
     "start": "node out/index.js",
     "dev": "npx ts-node-dev src/index.ts",
     "test": "env NODE_ENV=test npx tsx --test tests/**/*.test.ts",
-    "build:ui": "rm -rf dist && cd ../frontend && npm run build && cp -r dist ../backend"
+    "build:ui": "rm -rf dist && cd ../frontend && npm run build && cp -r dist ../backend",
+    "seed": "ts-node src/seed.ts",
+    "start:test": "NODE_ENV=test ts-node-dev src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +29,7 @@
     "json-server": "^1.0.0-beta.3",
     "supertest": "^7.1.4",
     "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.0"
   },
