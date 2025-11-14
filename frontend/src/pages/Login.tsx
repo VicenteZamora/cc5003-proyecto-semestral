@@ -1,22 +1,31 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../services/login";
+import { login as loginService } from "../services/login";
+import { useAuth } from "../context/AuthContext";
 
 export default function LoginComponent() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      await login({
+      // Llamar al servicio de login
+      const response = await loginService({
         username,
         password,
       });
+      
+      login(username, response.token);
+      
       setUsername("");
       setPassword("");
+      
+      navigate("/");
+      
     } catch (exception) {
       setErrorMessage("Credenciales incorrectas");
       setTimeout(() => setErrorMessage(null), 5000);
