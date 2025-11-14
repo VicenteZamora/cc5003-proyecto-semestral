@@ -5,6 +5,8 @@ import guideRoutes from "./routes/guideRoutes";
 import postRoutes from "./routes/postRoutes";
 import userRoutes from "./routes/userRoutes";
 import authRoutes from "./routes/authRoutes";
+import gameRoutes from "./routes/gameRoutes";
+import testingRouter from "./controllers/testing";
 import config from "./utils/config";
 import {
   errorHandler,
@@ -30,6 +32,8 @@ if (uri) {
 }
 
 if (process.env.NODE_ENV !== "test") {
+  app.use("/api/testing", testingRouter);
+
   app.use(express.static("dist"));
   app.get(/.*/, (_, response) => {
     response.sendFile(path.resolve(__dirname, "../dist", "index.html"));
@@ -41,6 +45,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(requestLogger);
 
+app.use("/api/games", gameRoutes);
 app.use("/api/guides", guideRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/users", userRoutes);
