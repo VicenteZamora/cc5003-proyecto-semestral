@@ -9,8 +9,7 @@ Integrantes:
 ## Uso
 1. Se requiere Node.js, instálelo para su sistema operativo siguiendo las instrucciones en este [link](https://nodejs.org/en/download)
 2. Clone el repositorio.
-3. Cambie a la carpeta asociada con `cd frontend/backend` y ejecute `npm install`.
-4. Para ejecutar el frontend utilice `npm run dev`, mientras que para el backend, `npm run start`.
+3. Cambie a la carpeta asociada con `cd frontend/backend/e2etests` y ejecute `npm install`.
 
 ### Variables de entorno requeridas para el backend
 
@@ -21,6 +20,6 @@ Integrantes:
 - PORT
 - HOST
 
-### instrucciones de ejecución local
+### Instrucciones de ejecución local
 
-Los comandos para correr `backend/frontend` se encuentran en los `package.json` respectivos.
+Los comandos para correr `backend/frontend/e2etests` se encuentran en los `package.json` respectivos.
