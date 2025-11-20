@@ -31,14 +31,17 @@ if (uri) {
     });
 }
 
-if (process.env.NODE_ENV !== "test") {
+if (process.env.NODE_ENV === "test") {
   app.use("/api/testing", testingRouter);
+} 
 
+if (process.env.NODE_ENV !== "test") {
   app.use(express.static("dist"));
   app.get(/.*/, (_, response) => {
     response.sendFile(path.resolve(__dirname, "../dist", "index.html"));
   });
 }
+
 
 app.use(cors());
 app.use(cookieParser());
