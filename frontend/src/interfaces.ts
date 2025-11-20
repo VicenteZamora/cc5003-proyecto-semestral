@@ -16,8 +16,12 @@ export interface Guide {
 }
 
 export interface Comment {
+  id: string | number;
   content: string;
-  author: string;
+  createdAt: string | Date;
+  author?: {
+    username: string;
+  };
 }
 
 export interface User {

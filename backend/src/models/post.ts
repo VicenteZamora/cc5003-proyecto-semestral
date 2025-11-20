@@ -4,14 +4,19 @@ export interface Post {
   id: string;
   content: string;
   author: mongoose.Types.ObjectId;
+  guide: mongoose.Types.ObjectId;
 }
 
-const postSchema = new Schema<Post>({
-  content: { type: String, required: true },
-  author: { type: Schema.Types.ObjectId, ref: "User" },
-});
-
-export const postModel = mongoose.model<Post>("Post", postSchema);
+const postSchema = new Schema<Post>(
+  {
+    content: { type: String, required: true },
+    author: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    guide: { type: Schema.Types.ObjectId, ref: "Guide", required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 postSchema.set("toJSON", {
   transform: (
@@ -27,3 +32,5 @@ postSchema.set("toJSON", {
     delete returnedObject.__v;
   },
 });
+
+export const postModel = mongoose.model<Post>("Post", postSchema);
