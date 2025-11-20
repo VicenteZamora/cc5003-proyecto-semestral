@@ -7,6 +7,7 @@ import { NotFound } from "./pages/NotFound";
 import { NavBar } from "./components/NavBar";
 import LoginComponent from "./pages/Login";
 import RegisterComponent from "./pages/Register";
+import './axiosConfig';
 
 function App() {
   return (
