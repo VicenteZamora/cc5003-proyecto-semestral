@@ -7,28 +7,38 @@ export default function LoginComponent() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsLoading(true);
+    setErrorMessage(null);
+    
     try {
-      // Llamar al servicio de login
+      localStorage.removeItem("csrfToken");
+      localStorage.removeItem("username");
+      
       const response = await loginService({
         username,
         password,
       });
       
-      login(username, response.token);
+      login(username, response.csrfToken);
       
       setUsername("");
       setPassword("");
       
       navigate("/");
       
-    } catch (exception) {
-      setErrorMessage("Credenciales incorrectas");
+    } catch (exception: any) {
+      console.error("Error en login:", exception);
+      const message = exception.response?.data?.error || "Credenciales incorrectas";
+      setErrorMessage(message);
       setTimeout(() => setErrorMessage(null), 5000);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -58,6 +68,7 @@ export default function LoginComponent() {
               className="w-full px-4 py-2 bg-gray-900 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Tu usuario"
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -73,21 +84,24 @@ export default function LoginComponent() {
               className="w-full px-4 py-2 bg-gray-900 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Tu contraseña"
               required
+              disabled={isLoading}
             />
           </div>
 
           <div className="space-y-3">
             <button
               type="submit"
-              className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 cursor-pointer"
+              disabled={isLoading}
+              className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Ingresar
+              {isLoading ? "Ingresando..." : "Ingresar"}
             </button>
 
             <button
               type="button"
               onClick={() => navigate("/register")}
-              className="w-full py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition duration-300 cursor-pointer"
+              disabled={isLoading}
+              className="w-full py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition duration-300 cursor-pointer disabled:opacity-50"
             >
               Crear cuenta
             </button>
