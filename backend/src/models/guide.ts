@@ -6,14 +6,23 @@ export interface Guide {
   title: string;
   content: string;
   author: mongoose.Types.ObjectId;
+  game: mongoose.Types.ObjectId;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
-const guideSchema = new Schema<Guide>({
-  tags: { type: String, required: true },
-  title: { type: String, required: true },
-  content: { type: String, required: true },
-  author: { type: Schema.Types.ObjectId, ref: "User" },
-});
+const guideSchema = new Schema<Guide>(
+  {
+    tags: { type: String, required: true },
+    title: { type: String, required: true },
+    content: { type: String, required: true },
+    author: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    game: { type: Schema.Types.ObjectId, ref: "Game", required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 export const guideModel = mongoose.model<Guide>("Guide", guideSchema);
 

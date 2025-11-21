@@ -1,18 +1,23 @@
 export interface Game {
-  id: number;
+  id: string;
   name: string;
   genre: string;
   platform: string;
   description: string;
-  guides: Array<number>;
-  image: string;
+  guides?: Guide[];
 }
 
 export interface Guide {
-  tags: string;
+  id: string;
   title: string;
   content: string;
-  author: string;
+  tags: string;
+  game: string | { id: string; name: string };
+  author?: {
+    username: string;
+  };
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface Comment {
@@ -22,6 +27,14 @@ export interface Comment {
   author?: {
     username: string;
   };
+  guide?: {
+    id: string;
+    title: string;
+    game?: {
+      id: string;
+      name: string;
+    };
+  };
 }
 
 export interface User {
@@ -29,4 +42,15 @@ export interface User {
   username: string;
   email: string;
   posts: Array<string>;
+}
+
+export interface UserProfile {
+  id: string;
+  username: string;
+  guides: Guide[];
+  posts: Comment[];
+  stats: {
+    totalGuides: number;
+    totalPosts: number;
+  };
 }
