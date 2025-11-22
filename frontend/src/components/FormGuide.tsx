@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import type { Guide } from "../interfaces";
 
 interface FormGuideProps {
   gameId: string;
-  onGuideCreated?: (guide: any) => void;
+  onGuideCreated?: (guide: Guide) => void;
 }
 
 export function FormGuide({ gameId, onGuideCreated }: FormGuideProps) {

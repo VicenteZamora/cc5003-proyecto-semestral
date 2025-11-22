@@ -1,27 +1,29 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import type { Game } from "../interfaces";
+import type { Game, Guide } from "../interfaces";
 import { FormGuide } from "../components/FormGuide";
+import { useGuideListStore } from "../store";
 
 function GameInfo() {
   const { id } = useParams();
   const [game, setGame] = useState<Game>();
+  const { guides, addGuide, initializeGuides } = useGuideListStore();
 
   useEffect(() => {
     axios
       .get(`/api/games/${id}`)
-      .then((json) => setGame(json.data))
+      .then((json) => {
+        setGame(json.data)
+        initializeGuides(json.data.guides);
+      })
       .catch((err) => console.log(err));
   }, [id]);
 
-  const handleGuideCreated = (newGuide: any) => {
+  const handleGuideCreated = (newGuide: Guide) => {
     // Actualizar el juego con la nueva guía
     if (game) {
-      setGame({
-        ...game,
-        guides: [...(game.guides || []), newGuide]
-      });
+      addGuide(newGuide)
     }
     
     console.log("Nueva guía creada:", newGuide);
@@ -55,11 +57,11 @@ function GameInfo() {
             {/* Guías */}
             <div>
               <h2 className="text-xl font-bold text-white mb-4">
-                Guías disponibles ({game.guides?.length || 0})
+                Guías disponibles ({guides.length || 0})
               </h2>
-              {game.guides && game.guides.length > 0 ? (
+              {guides && guides.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {game.guides.map((guide) => (
+                  {guides.map((guide) => (
                     <Link
                       key={guide.id}
                       to={`/games/${id}/guides/${guide.id}`}
