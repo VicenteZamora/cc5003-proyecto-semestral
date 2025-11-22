@@ -5,7 +5,8 @@ import supertest from "supertest";
 import app from "../src/index";
 import { UserModel, User } from "../src/models/user";
 import mongoose from "mongoose";
-import { user } from "./utils";
+import { game, user } from "./utils";
+import { gameModel } from "../src/models/game";
 
 const api = supertest(app);
 
@@ -97,10 +98,13 @@ describe("Guides API", () => {
   const loginUser = { username: user.username, password: user.password };
   let guideId: string;
   test("authenticated author", async () => {
+    const newGame = await new gameModel(game).save();
+
     const guide = {
       content: "This is another guide",
       title: "Guide Title",
       tags: "tag1,tag2",
+      game: newGame._id,
     };
     const auth = await agent.post("/api/login").send(loginUser).expect(200);
 
