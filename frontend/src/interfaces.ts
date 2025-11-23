@@ -21,13 +21,15 @@ export interface Guide {
 }
 
 export interface Comment {
-  id: string | number;
+  id: string;
   content: string;
   createdAt: string | Date;
   author?: {
+    id?: string;
+    _id?: string;
     username: string;
   };
-  guide?: {
+  guide?: string | {
     id: string;
     title: string;
     game?: {
