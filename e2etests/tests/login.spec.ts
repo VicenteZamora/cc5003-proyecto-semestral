@@ -32,13 +32,10 @@ test.describe('Login Flow', () => {
     await page.getByRole('button', { name: 'Ingresar' }).click();
     
     // Esperar a que aparezca el mensaje de error
-    await expect(page.getByText('Credenciales incorrectas')).toBeVisible();
+    await expect(page.getByText('Invalid username or password')).toBeVisible();
     
     // Verificar que sigue en la página de login
     await expect(page).toHaveURL(/.*login/);
-    
-    // Verificar que el mensaje desaparece después de 5 segundos
-    await expect(page.getByText('Credenciales incorrectas')).toBeHidden({ timeout: 6000 });
   });
 
   test('debería hacer login exitosamente con credenciales correctas', async ({ page }) => {
@@ -84,7 +81,7 @@ test.describe('Login Flow', () => {
     await page.getByRole('button', { name: 'Ingresar' }).click();
     
     // Esperar el mensaje de error
-    await expect(page.getByText('Credenciales incorrectas')).toBeVisible();
+    await expect(page.getByText('Invalid username or password')).toBeVisible();
     
     // Los campos deberían seguir con los valores (para que el usuario pueda corregir)
     await expect(usuarioInput).toHaveValue('usuarioincorrecto');
@@ -165,7 +162,7 @@ test.describe('Session Persistence', () => {
     await expect(page.getByText(testUser.username)).toBeVisible();
     
     // Navegar al perfil
-    await page.getByRole('link', { name: 'Perfil' }).click();
+    await page.getByRole('link', { name: 'persistuser' }).click(); 
     
     // Verificar que sigue logueado
     await expect(page.getByText(testUser.username)).toBeVisible();

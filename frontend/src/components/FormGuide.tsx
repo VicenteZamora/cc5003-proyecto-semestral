@@ -76,7 +76,7 @@ export function FormGuide({ gameId, onGuideCreated }: FormGuideProps) {
         </p>
         <button
           onClick={() => navigate("/login")}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
+          className="cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50"
         >
           Iniciar sesión
         </button>
@@ -159,7 +159,7 @@ export function FormGuide({ gameId, onGuideCreated }: FormGuideProps) {
         <button
           type="submit"
           disabled={isSubmitting || !title.trim() || !content.trim()}
-          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
+          className="cursor-pointer flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-2">
@@ -183,7 +183,7 @@ export function FormGuide({ gameId, onGuideCreated }: FormGuideProps) {
             setError(null);
           }}
           disabled={isSubmitting}
-          className="px-6 bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition disabled:opacity-50"
+          className="cursor-pointer px-6 bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition disabled:opacity-50"
         >
           Limpiar
         </button>

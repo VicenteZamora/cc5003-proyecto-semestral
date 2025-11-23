@@ -85,8 +85,7 @@ export default function RegisterComponent() {
           <div className="space-y-3">
             <button
               type="submit"
-              className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 cursor-pointer"
-            >
+              className="w-full py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 cursor-pointer"            >
               Registrarse
             </button>
 

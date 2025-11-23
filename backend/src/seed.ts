@@ -52,7 +52,7 @@ const seedDatabase = async () => {
     ]);
     console.log("👥 Usuarios creados:", users.length);
 
-    // Crear juegos (sin guías por ahora)
+    // Crear juegos
     const games = await gameModel.insertMany([
       {
         name: "The Legend of Zelda: Breath of the Wild",
@@ -97,7 +97,7 @@ const seedDatabase = async () => {
     ]);
     console.log("🎮 Juegos creados:", games.length);
 
-    // Crear guías
+    // Crear guías CON el campo game
     const guides = await guideModel.insertMany([
       {
         tags: "beginner,combat,tips",
@@ -116,6 +116,7 @@ Esta guía te ayudará a comenzar tu aventura en Breath of the Wild.
 - Usa el arco para enemigos a distancia
 - Cocina comida antes de peleas difíciles`,
         author: users[0]._id,
+        game: games[0]._id, // ✅ Agregar referencia al juego
       },
       {
         tags: "boss,strategy,advanced",
@@ -139,6 +140,7 @@ Margit es el primer jefe principal y puede ser muy desafiante.
 - Más agresivo, busca aperturas cortas
 - Usa la invocación para distraerlo`,
         author: users[1]._id,
+        game: games[1]._id, // ✅ Agregar referencia al juego
       },
       {
         tags: "farming,money,crops",
@@ -158,6 +160,7 @@ Aprende a maximizar tus ganancias en la granja.
 - Procesa productos en conservas
 - Cría animales para productos constantes`,
         author: users[0]._id,
+        game: games[2]._id, // ✅ Agregar referencia al juego
       },
       {
         tags: "exploration,secrets,collectibles",
@@ -176,6 +179,7 @@ Descubre áreas ocultas y coleccionables secretos.
 - Recipientes de alma: Más energía para hechizos
 - Amuletos: Mejoras pasivas únicas`,
         author: users[1]._id,
+        game: games[3]._id, // ✅ Agregar referencia al juego
       },
       {
         tags: "redstone,automation,tutorial",
@@ -195,31 +199,37 @@ Aprende los fundamentos de la redstone.
 2. Sistema de iluminación con palancas
 3. Granja automática básica`,
         author: users[2]._id,
+        game: games[4]._id, // ✅ Agregar referencia al juego
       },
     ]);
     console.log("📚 Guías creadas:", guides.length);
 
-    // Crear posts
+    // Crear posts (comentarios en guías)
     const posts = await postModel.insertMany([
       {
         content: "¡Acabo de terminar Elden Ring! Qué experiencia tan increíble. Los jefes finales son épicos 🔥",
         author: users[1]._id,
+        guide: guides[1]._id, // Comentario en la guía de Margit
       },
       {
-        content: "Buscando gente para jugar Minecraft en modo survival. ¿Alguien se anima?",
+        content: "Excelente guía! Los aspersores de calidad realmente cambian el juego 👍",
         author: users[2]._id,
+        guide: guides[2]._id, // Comentario en la guía de Stardew Valley
       },
       {
-        content: "Después de 200 horas en Stardew Valley, finalmente completé el centro comunitario. Este juego es adictivo 🌾",
+        content: "Gracias por los consejos de combate. El parry me salvó muchas veces 🛡️",
         author: users[0]._id,
+        guide: guides[0]._id, // Comentario en la guía de Zelda
       },
       {
-        content: "¿Recomendaciones de juegos metroidvania? Ya terminé Hollow Knight y necesito algo similar.",
+        content: "No encuentro el pasaje detrás de la estación. ¿Alguien puede ser más específico?",
         author: users[1]._id,
+        guide: guides[3]._id, // Comentario en la guía de Hollow Knight
       },
       {
-        content: "BOTW sigue siendo el mejor juego de mundo abierto que he jugado. ¿Alguien más esperando noticias de BOTW 2?",
+        content: "Perfecto para empezar con redstone. ¿Harás una guía avanzada? 🔴",
         author: users[0]._id,
+        guide: guides[4]._id, // Comentario en la guía de Minecraft
       },
     ]);
     console.log("💬 Posts creados:", posts.length);
@@ -241,7 +251,7 @@ Aprende los fundamentos de la redstone.
       $push: { guides: guides[4]._id },
     });
 
-    // Actualizar relaciones: Asignar posts a usuarios
+    // Actualizar relaciones: Asignar posts y guías a usuarios
     await UserModel.findByIdAndUpdate(users[0]._id, {
       $push: { 
         posts: { $each: [posts[2]._id, posts[4]._id] },
