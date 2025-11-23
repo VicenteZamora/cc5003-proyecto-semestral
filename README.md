@@ -1,4 +1,4 @@
-# Foro de Videojuegoss: Trucoteca
+# Foro de Videojuegos
 
 **Fecha:** 23 de noviembre de 2025
 **Integrantes:**
