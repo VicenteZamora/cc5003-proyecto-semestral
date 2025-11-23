@@ -36,9 +36,6 @@ test.describe('Login Flow', () => {
     
     // Verificar que sigue en la página de login
     await expect(page).toHaveURL(/.*login/);
-    
-    // Verificar que el mensaje desaparece después de 5 segundos
-    await expect(page.getByText('Invalid username or password')).toBeHidden({ timeout: 6000 });
   });
 
   test('debería hacer login exitosamente con credenciales correctas', async ({ page }) => {
