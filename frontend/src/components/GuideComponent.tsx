@@ -55,26 +55,6 @@ function GuideComponent() {
     }
   };
 
-  // Función para eliminar comentario
-  const deleteComment = async (commentId: string) => {
-    if (!window.confirm("¿Estás seguro de que quieres eliminar este comentario?")) {
-      return;
-    }
-
-    try {
-      await axios.delete(`/api/posts/${commentId}`, {
-        withCredentials: true,
-      });
-
-      setComments((prev) => prev.filter((comment) => comment.id !== commentId));
-    } catch (error) {
-      console.error("Error deleting comment", error);
-      if (axios.isAxiosError(error)) {
-        alert(error.response?.data?.error || "Error al eliminar el comentario");
-      }
-    }
-  };
-
   // Función para iniciar la edición
   const startEdit = (comment: Comment) => {
     setEditingCommentId(comment.id);
