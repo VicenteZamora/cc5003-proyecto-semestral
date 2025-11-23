@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "deploy": "npm run build:ui && npm run build && rm -rf viceav && mkdir viceav && cp -r out dist package.json .env viceav",
+    "deploy": "npm run build:ui && npm run build && rm -rf trucoteca && mkdir trucoteca && cp -r out dist package.json .env trucoteca && ssh -p 219 fullstack@fullstack.dcc.uchile.cl 'rm -rf trucoteca' && scp -P219 -r trucoteca fullstack@fullstack.dcc.uchile.cl:~",
     "build": "npx tsc",
     "start": "node out/index.js",
     "dev": "npx ts-node-dev src/index.ts",
